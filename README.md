@@ -5,3 +5,4 @@ The project aims to learn the Python language. Each file/folder is responsible f
 ## List of created games
 * Heads or Tails
 * Rock Paper Scissors
+* Password Generator
