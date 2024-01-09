@@ -1,9 +1,8 @@
 import random
-
+import hangman_dictionary
 import resources
 
-dictionary = ["annakonda", "jutrzenka", "grizzly", "kopciuszek", "zootopia"]
-chosen_word = random.choice(dictionary)
+chosen_word = random.choice(hangman_dictionary.word_list)
 display = []
 fin = False
 left_to_find = len(chosen_word)
