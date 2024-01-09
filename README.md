@@ -6,3 +6,4 @@ The project aims to learn the Python language. Each file/folder is responsible f
 * Heads or Tails
 * Rock Paper Scissors
 * Password Generator
+* Hangman
