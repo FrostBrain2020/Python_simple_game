@@ -7,3 +7,4 @@ The project aims to learn the Python language. Each file/folder is responsible f
 * Rock Paper Scissors
 * Password Generator
 * Hangman
+* Caesar Cipher
