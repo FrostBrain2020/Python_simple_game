@@ -8,3 +8,4 @@ The project aims to learn the Python language. Each file/folder is responsible f
 * Password Generator
 * Hangman
 * Caesar Cipher
+* Blackjack
