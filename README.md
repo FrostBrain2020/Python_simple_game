@@ -10,3 +10,4 @@ The project aims to learn the Python language. Each file/folder is responsible f
 * Caesar Cipher
 * Blackjack
 * Number Guessing Game
+* Higher or Lower
