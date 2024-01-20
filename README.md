@@ -14,3 +14,4 @@ The project aims to learn the Python language. Each file/folder is responsible f
 * Coffe Machine Simulator
 * Quiz Game
 * Turtle Race
+* Snake Game
