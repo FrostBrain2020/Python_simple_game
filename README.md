@@ -17,3 +17,4 @@ The project aims to learn the Python language. Each file/folder is responsible f
 * Snake Game
 * Pong Game
 * Turtle Crossing Game
+* U.S. States Game
