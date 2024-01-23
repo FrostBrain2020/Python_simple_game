@@ -28,14 +28,16 @@ guessed_nr = 0
 game_on = True
 data = pandas.read_csv("50_states.csv")
 all_states = data.state.to_list()
+guessed_states = []
 
 while game_on:
     answer_state = screen.textinput(f"{guessed_nr}/50 States Correct",
                                     "What's another state's name?").title()
-    if answer_state in all_states:
+    if answer_state in all_states and answer_state not in guessed_states:
         state = data[data.state == answer_state]
         mark_state(answer_state, int(state.x.iloc[0]), int(state.y.iloc[0]))
         guessed_nr += 1
+        guessed_states.append(answer_state)
     elif guessed_nr == 50:
         you_win()
         game_on = False
