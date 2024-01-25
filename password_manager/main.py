@@ -2,8 +2,10 @@ from tkinter import *
 from tkinter import messagebox
 from random import randint, choice, shuffle
 import pyperclip
+import json
 FONT = ("Courier", 12, "normal")
 DEFAULT_EMAIL = "example@email.com"
+FILE_NAME = "date.json"
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
             'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
             'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -28,11 +30,36 @@ def generate_passwd():
     pyperclip.copy(passwd)
 
 
+# ---------------------------- SEARCH WEBSITE ------------------------------- #
+def search_website():
+    try:
+        with open(FILE_NAME, mode="r") as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        messagebox.showerror(title="Oops", message="You don't have any saved passwords")
+    else:
+        website = website_entry.get()
+        if website in data:
+            passwd = data[website]["password"]
+            username = data[website]["email"]
+            pyperclip.copy(passwd)
+            messagebox.showinfo(title=f"Data for {website}", message=f"Username: {username}\nPassword: {passwd}")
+        else:
+            messagebox.showinfo(title=f"Search result",
+                                message=f"Website {website} wasn't found in data")
+
+
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save_data():
     website = website_entry.get()
     username = username_entry.get()
     passwd = passwd_entry.get()
+    new_data = {
+        website: {
+            "email": username,
+            "password": passwd,
+        }
+    }
 
     if website == "" or username == "" or passwd == "":
         messagebox.showerror(title="Oops", message="Please don't leave any fields")
@@ -41,12 +68,21 @@ def save_data():
                                                           f"Email: {username}\n Password: {passwd}\n"
                                                           f"It ok to save?")
         if is_ok:
-            with open("data.txt", mode="a") as file:
-                file.write(f"{website} | {username} | {passwd}\n")
-            website_entry.delete(0, END)
-            passwd_entry.delete(0, END)
-            username_entry.delete(0, END)
-            username_entry.insert(0, string=DEFAULT_EMAIL)
+            try:
+                with open(FILE_NAME, mode="r") as file:
+                    data = json.load(file)
+            except FileNotFoundError:
+                with open(FILE_NAME, mode="w") as file:
+                    json.dump(new_data, file, indent=4)
+            else:
+                data.update(new_data)
+                with open(FILE_NAME, mode="w") as file:
+                    json.dump(data, file, indent=4)
+            finally:
+                website_entry.delete(0, END)
+                passwd_entry.delete(0, END)
+                username_entry.delete(0, END)
+                username_entry.insert(0, string=DEFAULT_EMAIL)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -69,16 +105,18 @@ passwd_txt = Label(text="Password:", font=FONT)
 passwd_txt.grid(row=3, column=0)
 
 # Entries
-website_entry = Entry(width=50)
-website_entry.grid(row=1, column=1, columnspan=2)
+website_entry = Entry(width=32)
+website_entry.grid(row=1, column=1)
 website_entry.focus()
-username_entry = Entry(width=50)
+username_entry = Entry(width=51)
 username_entry.insert(END, string=DEFAULT_EMAIL)
 username_entry.grid(row=2, column=1, columnspan=2)
 passwd_entry = Entry(width=32)
 passwd_entry.grid(row=3, column=1)
 
 # Buttons
+search_btn = Button(text="Search", width=14, command=search_website)
+search_btn.grid(row=1, column=2)
 passwd_btn = Button(text="Generate Password", command=generate_passwd)
 passwd_btn.grid(row=3, column=2)
 add_btn = Button(text="Add", width=43, command=save_data)
