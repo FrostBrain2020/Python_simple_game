@@ -1,16 +1,14 @@
 from data import question_data
 from question_model import Question
 from quiz_brain import Brain
+from ui import QuizInterface
 
 question_bank = []
-gameplay = Brain(question_bank)
 for question in question_data:
-    question_bank.append(Question(question["text"], question["answer"]))
+    question_bank.append(Question(question["question"], question["correct_answer"]))
 
-gameplay = Brain(question_bank)
+brain = Brain(question_bank)
+quiz_ui = QuizInterface(brain)
 
-while gameplay.still_has_question():
-    gameplay.next_question()
-
-print("You've completed the Quiz")
-print(f"Your final score is: {gameplay.score}/{gameplay.question_number}")
+# print("You've completed the Quiz")
+# print(f"Your final score is: {gameplay.score}/{gameplay.question_number}")

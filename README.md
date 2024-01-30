@@ -9,7 +9,7 @@ The project aims to learn the Python language. Each file/folder is responsible f
 * Blackjack
 * Number Guessing Game
 * Higher or Lower
-* Quiz Game
+* Quiz Game (project with API)
 * Turtle Race
 * Snake Game
 * Pong Game
@@ -23,4 +23,4 @@ The project aims to learn the Python language. Each file/folder is responsible f
 * Spelling using the NATO alphabet
 * Converter Mile to Kilometers
 * Pomodoro Program
-* Password Manager 
+* Password Manager
