@@ -9,7 +9,7 @@ The project aims to learn the Python language. Each file/folder is responsible f
 * Blackjack
 * Number Guessing Game
 * Higher or Lower
-* Quiz Game (project with API)
+* Quiz Game (window application, API)
 * Turtle Race
 * Snake Game
 * Pong Game
@@ -21,6 +21,7 @@ The project aims to learn the Python language. Each file/folder is responsible f
 * Caesar Cipher
 * Coffe Machine Simulator
 * Spelling using the NATO alphabet
-* Converter Mile to Kilometers
-* Pomodoro Program
-* Password Manager
+* Converter Mile to Kilometers (window application)
+* Pomodoro Program (window application)
+* Password Manager (window application)
+* Rain Alert (API, SMS)
