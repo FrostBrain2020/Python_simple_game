@@ -26,6 +26,7 @@ The project aims to learn the Python language. Each file/directory is responsibl
 * Password Manager (window application)
 * Rain Alert (external API, SMS Gate)
 * Stock News (external API, SMS Gate)
+* Habit Tracker (external API)
 
 ## List of Used Library During Education Process
 * random 
