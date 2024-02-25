@@ -3,7 +3,6 @@
 The project aims to learn the Python language. Each file/directory is responsible for an independent mini-game.
 
 ## List of Created Games
-* Heads or Tails
 * Rock Paper Scissors
 * Hangman
 * Blackjack
