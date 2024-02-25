@@ -1,12 +1,13 @@
-import random
-import hangman_dictionary
-import resources
+from random import choice
+from hangman_dictionary import word_list
+from resources import hangman_stages
 
-chosen_word = random.choice(hangman_dictionary.word_list)
+chosen_word = choice(word_list)
 display = []
 fin = False
 left_to_find = len(chosen_word)
 life = 7
+letters_used = []
 
 print("Searched word:")
 for letter in chosen_word:
@@ -18,14 +19,17 @@ for letter in chosen_word:
 print("".join(display))
 
 while not fin and life != 0:
+    if len(letters_used) != 0:
+        print(f"Letters already used: {letters_used}")
     guess = input("Guess a letter: ").lower()
+    letters_used.append(guess)
     for i in range(len(chosen_word)):  # for letter in word: => return String
         if chosen_word[i] == guess:
             display[i] = guess
             left_to_find -= 1
     if guess not in display:
         life -= 1
-        print(resources.hangman_stages[life])
+        print(hangman_stages[life])
     print("".join(display))
     if left_to_find == 0:
         fin = True

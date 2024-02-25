@@ -29,12 +29,12 @@ while True:
     print(f"Computer choose:\n{images[computer_pick]}")
     if pick == computer_pick:
         print("Draw in the game. No one won!\n")
-        score["draws"] = score["draws"] + 1
+        score["draws"] += 1
     elif ((pick == 0 and computer_pick == 2) or
           (pick == 1 and computer_pick == 0) or
           (pick == 2 and computer_pick == 1)):
         print("You win!\n")
-        score["wins"] = score["wins"] + 1
+        score["wins"] += 1
     else:
         print("You lose!\n")
-        score["loses"] = score["loses"] + 1
+        score["loses"] += 1
