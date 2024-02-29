@@ -1,5 +1,5 @@
 from random import choice
-CARD_SCORING = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+CARD_SCORING = (11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10)
 
 
 class Dealer:
@@ -8,19 +8,16 @@ class Dealer:
         self.my_cards = []
         self.dealer_cards = []
 
-
     def complete_hand(self, hand, amount):
         """Add to the hand list new cards. The given amount indicates how many cards we add."""
         for _ in range(amount):
             hand.append(choice(CARD_SCORING))
         return hand
 
-
     def print_hand(self):
         """Reading the status of individual players' cards"""
         print(f"Your card: {self.my_cards}")
         print(f"Computer's card: {self.dealer_cards}")
-
 
     def count_points(self, cards):
         """Take list of cards and return the score calculated from the cards."""
@@ -30,7 +27,6 @@ class Dealer:
             cards.remove(11)
             cards.append(1)
         return sum(cards)
-
 
     def who_win(self):
         """A function that determines who won the hand"""

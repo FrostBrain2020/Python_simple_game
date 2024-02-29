@@ -9,6 +9,3 @@ for question in question_data:
 
 brain = Brain(question_bank)
 quiz_ui = QuizInterface(brain)
-
-# print("You've completed the Quiz")
-# print(f"Your final score is: {gameplay.score}/{gameplay.question_number}")

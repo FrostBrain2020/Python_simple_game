@@ -1,5 +1,5 @@
 from turtle import Turtle, Screen
-from random import randint, choice
+from random import randint
 
 is_race_on = False
 color = ["red", "orange", "yellow", "green", "blue", "purple"]

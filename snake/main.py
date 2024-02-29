@@ -3,15 +3,6 @@ from snake import Snake
 from food import Food
 from scoreboard import Scoreboard
 import time
-"""
-1. Create snake body
-2. Move snake
-3. Control Snake
-4. Detect collision with foot
-5. Create a scoreboard
-6. Detected collision with wall
-7. Detected collision with tail
-"""
 
 MOVE_SPEED = 0.7
 
@@ -25,7 +16,6 @@ screen.listen()
 snake = Snake()
 food = Food()
 score = Scoreboard()
-
 
 screen.update()
 screen.onkey(snake.right, "Right")
@@ -60,4 +50,3 @@ while is_game_on:
             score.print_game_over()
 
 screen.exitonclick()
-
